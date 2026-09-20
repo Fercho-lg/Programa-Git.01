@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!--
+        =====================================================
+        CONFIGURACIÓN DEL DOCUMENTO
+        =====================================================
+    -->
+
+    <meta charset="UTF-8">
+
+    <!--
+        Permite que la página se adapte a diferentes
+        tamaños de pantalla.
+    -->
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!--
+        Título que aparecerá en la pestaña del navegador.
+    -->
+
+    <title>
+        Tutorial de Fundamentos Frontend
+    </title>
+
+
+    <!--
+        =====================================================
+        CSS
+        =====================================================
+
+        En este ejemplo colocamos CSS dentro del mismo
+        archivo para mantener todo el tutorial en una
+        sola página.
+    -->
+
+    <style>
+
+        /*
+            Selector general.
+
+            box-sizing permite controlar mejor el tamaño
+            de los elementos.
+        */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /*
+            Estilos generales del documento.
+        */
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f0eeee;
+
+            color: #111;
+
+            line-height: 1.6;
+        }
+
+
+        /*
+            Contenedor principal.
+        */
+
+        .contenedor {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: auto;       
+        }
+
+
+        /*
+            Encabezado principal.
+        */
+
+        header {
+
+            background: #111;
+
+            color: white;
+
+            padding: 40px 20px;
+
+            text-align: center;
+        }
+
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: 40px;
+        }
+
+
+        header p {
+
+            max-width: 800px;
+
+            margin: 15px auto 0;
+        }
+
+
+        /*
+            Menú de navegación.
+        */
+
+        nav {
+
+            background: white;
+
+            border-bottom:
+                1px solid #ccc;
+
+            padding: 15px;
+        }
+
+
+        nav a {
+
+            color: #111;
+
+            margin-right: 15px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /*
+            Cada sección del tutorial.
+        */
+
+        section {
+
+            background: white;
+
+            margin: 25px 0;
+
+            padding: 30px;
+
+            border:
+                1px solid #ddd;
+
+            border-radius: 5px;
+        }
+
+
+        /*
+            Títulos.
+        */
+
+        h2 {
+
+            border-bottom:
+                2px solid #111;
+
+            padding-bottom: 10px;
+        }
+
+
+        h3 {
+
+            margin-top: 30px;
+        }
+
+
+        /*
+            Bloques de código.
+        */
+
+        pre {
+
+            background: #111;
+
+            color: #fff;
+
+            padding: 20px;
+
+            overflow-x: auto;
+
+            border-radius: 5px;
+        }
+
+
+        /*
+            Código pequeño dentro del texto.
+        */
+
+        code {
+
+            background: #eee;
+
+            padding: 2px 5px;
+
+            border-radius: 3px;
+        }
+
+
+        pre code {
+
+            background: transparent;
+
+            padding: 0;
+        }
+
+
+        /*
+            Cajas de información.
+        */
+
+        .nota {
+
+            background: #eee;
+
+            border-left:
+                5px solid #111;
+
+            padding: 15px;
+
+            margin: 20px 0;
+        }
+
+
+        /*
+            Tarjetas utilizadas para explicar
+            HTML, CSS y JavaScript.
+        */
+
+        .tarjetas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .tarjeta {
+
+            border:
+                1px solid #ccc;
+
+            padding: 20px;
+        }
+
+
+        /*
+            Ejemplo práctico.
+        */
+
+        .ejemplo {
+
+            border:
+                2px solid #111;
+
+            padding: 25px;
+
+            margin-top: 20px;
+        }
+
+
+        /*
+            Botón utilizado en el ejemplo
+            de JavaScript.
+        */
+
+        button {
+
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 20px;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+
+            background: #333;
+        }
+
+
+        /*
+            Pie de página.
+        */
+
+        footer {
+
+            background: #111;
+
+            color: white;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+
+        /*
+            Adaptación para dispositivos pequeños.
+        */
+
+        @media(max-width: 700px) {
+
+            .tarjetas {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            header h1 {
+
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!--
+    =====================================================
+    ENCABEZADO
+    =====================================================
+-->
+
+<header>
+
+    <div class="contenedor">
+
+        <h1>
+            Fundamentos Frontend
+        </h1>
+
+        <p>
+            Tutorial práctico para principiantes absolutos
+            sobre HTML5, CSS3 y JavaScript utilizando
+            Visual Studio Code.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!--
+    =====================================================
+    NAVEGACIÓN
+    =====================================================
+-->
+
+<nav>
+
+    <div class="contenedor">
+
+        <a href="#introduccion">
+            Introducción
+        </a>
+
+        <a href="#html">
+            HTML
+        </a>
+
+        <a href="#imagenes">
+            Imágenes
+        </a>
+
+        <a href="#css">
+            CSS
+        </a>
+
+        <a href="#javascript">
+            JavaScript
+        </a>
+
+        <a href="#proyecto">
+            Proyecto
+        </a>
+
+    </div>
+
+</nav>                  
+
+
+<main class="contenedor">
+
+
+<!-- =====================================================
+     1. INTRODUCCIÓN
+====================================================== -->
+
+<section id="introduccion">
+
+    <h2>
+        1. Introducción al desarrollo Frontend
+    </h2>
+
+
+    <p>
+
+        El desarrollo Frontend corresponde a la parte
+        de una página o aplicación web que el usuario
+        puede visualizar y utilizar directamente.
+
+    </p>
+
+
+    <p>
+
+        Por ejemplo, cuando visitamos una tienda virtual
+        podemos observar imágenes, botones, menús,
+        productos, formularios y textos.
+
+        Todos estos elementos forman parte de la
+        interfaz que desarrolla el Frontend.
+
+    </p>
+
+
+    <div class="tarjetas">
+
+
+        <div class="tarjeta">
+
+            <h3>
+                HTML
+            </h3>
+
+            <p>
+
+                HTML se encarga de construir la
+                estructura de la página.
+
+            </p>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <h3>
+                CSS
+            </h3>
+
+            <p>
+
+                CSS se encarga de controlar la
+                apariencia visual de la página.
+
+            </p>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+
+                JavaScript permite agregar
+                comportamiento e interacción.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="nota">
+
+        <strong>
+            Concepto fundamental:
+        </strong>
+
+        HTML construye la estructura,
+        CSS define la apariencia y
+        JavaScript agrega comportamiento.
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     2. VISUAL STUDIO CODE
+====================================================== -->
+
+<section>
+
+    <h2>
+        2. Preparación del entorno de trabajo
+    </h2>
+
+
+    <p>
+
+        Para desarrollar nuestro proyecto utilizaremos
+        Visual Studio Code como editor de código.
+
+    </p>
+
+
+    <h3>
+        Crear el proyecto
+    </h3>
+
+
+    <p>
+
+        Primero debemos crear una carpeta en nuestro
+        computador. Podemos llamarla:
+
+    </p>
+
+
+<pre><code>mi-primer-proyecto</code></pre>
+
+
+    <p>
+
+        Después abrimos esta carpeta desde
+        Visual Studio Code.
+
+    </p>
+
+
+    <h3>
+        Estructura recomendada
+    </h3>
+
+
+<pre><code>mi-primer-proyecto/
+
+│
+
+├── index.html
+
+│
+
+├── css/
+
+│   └── style.css
+
+│
+
+├── js/
+
+│   └── script.js
+
+│
+
+└── img/
+
+    └── imagen.jpg</code></pre>
+
+
+    <p>
+
+        Esta estructura permite mantener separados
+        los diferentes componentes del proyecto.
+
+    </p>
+
+
+    <ul>
+
+        <li>
+            <strong>index.html:</strong>
+            estructura.
+        </li>
+
+        <li>
+            <strong>style.css:</strong>
+            estilos.
+        </li>
+
+        <li>
+            <strong>script.js:</strong>
+            JavaScript.
+        </li>
+
+        <li>
+            <strong>img:</strong>
+            imágenes.
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!-- =====================================================
+     3. HTML
+====================================================== -->
+
+<section id="html">
+
+    <h2>
+        3. Fundamentos de HTML5
+    </h2>
+
+
+    <p>
+
+        HTML significa
+        <strong>
+            HyperText Markup Language
+        </strong>.
+
+        Se utiliza para organizar el contenido
+        de una página web.
+
+    </p>
+
+
+    <h3>
+        Estructura básica
+    </h3>
+
+
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="es"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;title&gt;
+        Mi primera página
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+    &lt;h1&gt;
+        Hola mundo
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        Esta es mi primera página.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+
+    <h3>
+        ¿Qué significa cada parte?
+    </h3>
+
+
+    <p>
+
+        <code>&lt;!DOCTYPE html&gt;</code>
+
+        indica que estamos utilizando HTML5.
+
+    </p>
+
+
+    <p>
+
+        <code>&lt;html&gt;</code>
+
+        representa el elemento principal
+        del documento.
+
+    </p>
+
+
+    <p>
+
+        <code>&lt;head&gt;</code>
+
+        contiene información de configuración
+        del documento.
+
+    </p>
+
+
+    <p>
+
+        <code>&lt;body&gt;</code>
+
+        contiene todo aquello que será visible
+        para el usuario.
+
+    </p>
+
+
+    <p>
+
+        <code>&lt;h1&gt;</code>
+
+        representa un título principal.
+
+    </p>
+
+
+    <p>
+
+        <code>&lt;p&gt;</code>
+
+        representa un párrafo.
+
+    </p>
+
+
+    <h3>
+        Otras etiquetas importantes
+    </h3>
+
+
+<pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+
+&lt;p&gt;Párrafo&lt;/p&gt;
+
+&lt;a href="pagina.html"&gt;
+    Enlace
+&lt;/a&gt;
+
+&lt;button&gt;
+    Botón
+&lt;/button&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;
+        Elemento
+    &lt;/li&gt;
+
+&lt;/ul&gt;</code></pre>
+
+
+</section>
+
+
+<!-- =====================================================
+     4. IMÁGENES
+====================================================== -->
+
+<section id="imagenes">
+
+    <h2>
+        4. Cómo añadir imágenes en HTML
+    </h2>
+
+
+    <p>
+
+        Para utilizar imágenes en nuestro proyecto
+        debemos primero almacenarlas dentro de una
+        carpeta.
+
+    </p>
+
+
+    <p>
+
+        Por ejemplo:
+
+    </p>
+
+
+<pre><code>mi-primer-proyecto/
+
+├── index.html
+
+└── img/
+
+    └── paisaje.jpg</code></pre>
+
+
+    <p>
+
+        Desde nuestro archivo HTML podemos insertar
+        la imagen utilizando:
+
+    </p>
+
+
+<pre><code>&lt;img
+    src="img/paisaje.jpg"
+    alt="Paisaje natural"
+&gt;</code></pre>
+
+
+    <h3>
+        ¿Qué significa este código?
+    </h3>
+
+
+    <p>
+
+        <code>&lt;img&gt;</code>
+
+        indica que queremos insertar una imagen.
+
+    </p>
+
+
+    <p>
+
+        <code>src</code>
+
+        significa "source" o fuente.
+
+        Indica dónde está ubicada la imagen.
+
+    </p>
+
+
+    <p>
+
+        <code>alt</code>
+
+        contiene una descripción alternativa
+        de la imagen.
+
+    </p>
+
+
+    <div class="nota">
+
+        <strong>
+            Importante:
+        </strong>
+
+        Si la imagen no aparece, debemos revisar
+        principalmente el nombre del archivo,
+        su extensión y la ruta escrita en
+        <code>src</code>.
+
+    </div>
+
+
+    <h3>
+        Cambiar el tamaño mediante CSS
+    </h3>
+
+
+<pre><code>.imagen {
+
+    width: 300px;
+
+    height: auto;
+
+}</code></pre>
+
+
+    <p>
+
+        Y posteriormente:
+
+    </p>
+
+
+<pre><code>&lt;img
+    class="imagen"
+    src="img/paisaje.jpg"
+    alt="Paisaje natural"
+&gt;</code></pre>
+
+
+    <h3>
+        Imagen mediante una dirección de Internet
+    </h3>
+
+
+<pre><code>&lt;img
+    src="https://ejemplo.com/imagen.jpg"
+    alt="Descripción de la imagen"
+&gt;</code></pre>
+
+
+    <p>
+
+        Para comenzar, se recomienda trabajar
+        con imágenes almacenadas dentro del
+        propio proyecto porque permite comprender
+        mejor el funcionamiento de las rutas.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     5. CSS
+====================================================== -->
+
+<section id="css">
+
+    <h2>
+        5. Fundamentos de CSS3
+    </h2>
+
+
+    <p>
+
+        CSS significa
+        <strong>
+            Cascading Style Sheets
+        </strong>.
+
+        Su función es modificar la apariencia
+        de los elementos HTML.
+
+    </p>
+
+
+    <h3>
+        Ejemplo básico
+    </h3>
+
+
+<pre><code>p {
+
+    color: black;
+
+    font-size: 18px;
+
+}</code></pre>
+
+
+    <p>
+
+        En este ejemplo:
+
+    </p>
+
+
+    <ul>
+
+        <li>
+            <code>p</code> es el selector.
+        </li>
+
+        <li>
+            <code>color</code> modifica el color.
+        </li>
+
+        <li>
+            <code>font-size</code> modifica el tamaño.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Clases CSS
+    </h3>
+
+
+<pre><code>.titulo {
+
+    color: black;
+
+    font-size: 32px;
+
+    text-align: center;
+
+}</code></pre>
+
+
+    <p>
+
+        La clase puede utilizarse desde HTML:
+
+    </p>
+
+
+<pre><code>&lt;h1 class="titulo"&gt;
+
+    Mi página web
+
+&lt;/h1&gt;</code></pre>
+
+
+    <h3>
+        Propiedades fundamentales
+    </h3>
+
+
+    <ul>
+
+        <li>
+            <code>color</code> — color del texto.
+        </li>
+
+        <li>
+            <code>background</code> — fondo.
+        </li>
+
+        <li>
+            <code>font-size</code> — tamaño de letra.
+        </li>
+
+        <li>
+            <code>margin</code> — espacio exterior.
+        </li>
+
+        <li>
+            <code>padding</code> — espacio interior.
+        </li>
+
+        <li>
+            <code>border</code> — borde.
+        </li>
+
+        <li>
+            <code>width</code> — ancho.
+        </li>
+
+        <li>
+            <code>height</code> — altura.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Modelo de caja
+    </h3>
+
+
+<pre><code>.tarjeta {
+
+    width: 300px;
+
+    padding: 20px;
+
+    border: 1px solid black;
+
+    margin: 20px;
+
+}</code></pre>
+
+
+    <p>
+
+        Todos los elementos HTML pueden entenderse
+        como cajas que poseen contenido, espacio
+        interno, borde y espacio externo.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     6. JAVASCRIPT
+====================================================== -->
+
+<section id="javascript">
+
+    <h2>
+        6. Fundamentos de JavaScript
+    </h2>
+
+
+    <p>
+
+        JavaScript permite agregar interacción
+        y comportamiento a una página web.
+
+    </p>
+
+
+    <h3>
+        Variables
+    </h3>
+
+
+<pre><code>let nombre = "Usuario";
+
+let edad = 25;</code></pre>
+
+
+    <p>
+
+        Las variables permiten almacenar información
+        que posteriormente podemos utilizar.
+
+    </p>
+
+
+    <h3>
+        Funciones
+    </h3>
+
+
+<pre><code>function saludar() {
+
+    alert("Hola mundo");
+
+}</code></pre>
+
+
+    <p>
+
+        Una función agrupa instrucciones que pueden
+        ejecutarse cuando sea necesario.
+
+    </p>
+
+
+    <h3>
+        Eventos
+    </h3>
+
+
+<pre><code>&lt;button onclick="saludar()"&gt;
+
+    Saludar
+
+&lt;/button&gt;</code></pre>
+
+
+    <p>
+
+        <code>onclick</code> indica que la función
+        debe ejecutarse cuando el usuario haga clic.
+
+    </p>
+
+
+    <h3>
+        Modificar contenido HTML
+    </h3>
+
+
+<pre><code>&lt;p id="mensaje"&gt;
+
+    Texto original
+
+&lt;/p&gt;
+
+
+&lt;button onclick="cambiarTexto()"&gt;
+
+    Cambiar texto
+
+&lt;/button&gt;
+
+
+&lt;script&gt;
+
+function cambiarTexto() {
+
+    document
+        .getElementById("mensaje")
+        .textContent =
+        "Texto actualizado";
+
+}
+
+&lt;/script&gt;</code></pre>
+
+
+    <p>
+
+        <code>getElementById()</code>
+
+        permite encontrar un elemento HTML
+        mediante su identificador.
+
+    </p>
+
+
+    <p>
+
+        <code>textContent</code>
+
+        permite modificar el texto
+        de ese elemento.
+
+    </p>
+
+
+    <div class="ejemplo">
+
+        <h3>
+            Ejemplo interactivo
+        </h3>
+
+
+        <p id="mensaje">
+
+            Presiona el botón.
+
+        </p>
+
+
+        <button onclick="cambiarTexto()">
+
+            CAMBIAR MENSAJE
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     7. INTEGRACIÓN
+====================================================== -->
+
+<section>
+
+    <h2>
+        7. Integración de HTML + CSS + JavaScript
+    </h2>
+
+
+    <p>
+
+        En un proyecto real las tres tecnologías
+        trabajan juntas.
+
+    </p>
+
+
+    <p>
+
+        HTML define qué elementos existen.
+
+    </p>
+
+
+    <p>
+
+        CSS define cómo se ven.
+
+    </p>
+
+
+    <p>
+
+        JavaScript define qué sucede cuando
+        el usuario interactúa.
+
+    </p>
+
+
+<pre><code>HTML
+ ↓
+Estructura
+
+CSS
+ ↓
+Diseño
+
+JavaScript
+ ↓
+Interacción</code></pre>
+
+
+    <div class="nota">
+
+        <strong>
+            Regla práctica:
+        </strong>
+
+        Antes de escribir código pregúntate:
+
+        <br><br>
+
+        ¿Qué necesito mostrar?
+        → HTML
+
+        <br>
+
+        ¿Cómo quiero que se vea?
+        → CSS
+
+        <br>
+
+        ¿Qué debe ocurrir cuando el usuario
+        interactúe?
+        → JavaScript
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     8. PROYECTO FINAL
+====================================================== -->
+
+<section id="proyecto">
+
+    <h2>
+        8. Proyecto práctico final
+    </h2>
+
+
+    <p>
+
+        Ahora construiremos una pequeña tarjeta
+        de producto aplicando los conocimientos
+        aprendidos.
+
+    </p>
+
+
+    <h3>
+        HTML
+    </h3>
+
+
+<pre><code>&lt;div class="producto"&gt;
+
+    &lt;img
+        src="img/producto.jpg"
+        alt="Producto"&gt;
+
+    &lt;h2&gt;
+        Producto de ejemplo
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Descripción del producto.
+    &lt;/p&gt;
+
+    &lt;strong&gt;
+        $99.999
+    &lt;/strong&gt;
+
+    &lt;button onclick="comprar()"&gt;
+
+        Comprar
+
+    &lt;/button&gt;
+
+    &lt;p id="resultado"&gt;&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+
+    <h3>
+        CSS
+    </h3>
+
+
+<pre><code>.producto {
+
+    width: 300px;
+
+    padding: 20px;
+
+    border: 1px solid #000;
+
+    text-align: center;
+
+}
+
+
+.producto img {
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+.producto button {
+
+    background: #000;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+}</code></pre>
+
+
+    <h3>
+        JavaScript
+    </h3>
+
+
+<pre><code>function comprar() {
+
+    document
+        .getElementById("resultado")
+        .textContent =
+        "Producto agregado correctamente.";
+
+}</code></pre>
+
+
+    <h3>
+        ¿Qué ocurre en este ejemplo?
+    </h3>
+
+
+    <ol>
+
+        <li>
+            HTML crea la tarjeta.
+        </li>
+
+        <li>
+            HTML carga la imagen.
+        </li>
+
+        <li>
+            CSS define la apariencia.
+        </li>
+
+        <li>
+            El usuario presiona el botón.
+        </li>
+
+        <li>
+            JavaScript ejecuta la función.
+        </li>
+
+        <li>
+            El mensaje cambia en pantalla.
+        </li>
+
+    </ol>
+
+
+</section>
+
+
+<!-- =====================================================
+     9. ERRORES FRECUENTES
+====================================================== -->
+
+<section>
+
+    <h2>
+        9. Errores frecuentes
+    </h2>
+
+
+    <h3>
+        La imagen no aparece
+    </h3>
+
+
+    <p>
+
+        Revisar:
+
+    </p>
+
+
+    <ul>
+
+        <li>
+            Nombre del archivo.
+        </li>
+
+        <li>
+            Extensión.
+        </li>
+
+        <li>
+            Carpeta.
+        </li>
+
+        <li>
+            Ruta escrita en <code>src</code>.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        El CSS no funciona
+    </h3>
+
+
+    <p>
+
+        Revisar que el archivo esté correctamente
+        conectado:
+
+    </p>
+
+
+<pre><code>&lt;link
+    rel="stylesheet"
+    href="css/style.css"
+&gt;</code></pre>
+
+
+    <h3>
+        JavaScript no funciona
+    </h3>
+
+
+    <p>
+
+        Revisar la consola del navegador y comprobar
+        que los nombres de las funciones y elementos
+        coincidan exactamente.
+
+    </p>
+
+
+    <h3>
+        La página se ve desorganizada
+    </h3>
+
+
+    <p>
+
+        Revisar principalmente:
+
+        <code>margin</code>,
+        <code>padding</code>,
+        <code>width</code>,
+        <code>height</code> y
+        <code>display</code>.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     10. EJERCICIO FINAL
+====================================================== -->
+
+<section>
+
+    <h2>
+        10. Ejercicio final
+    </h2>
+
+
+    <p>
+
+        Para comprobar los conocimientos adquiridos,
+        se propone crear una página web sencilla
+        desde cero.
+
+    </p>
+
+
+    <h3>
+        Requisitos
+    </h3>
+
+
+    <ul>
+
+        <li>
+            Crear un archivo HTML.
+        </li>
+
+        <li>
+            Crear un archivo CSS.
+        </li>
+
+        <li>
+            Crear un archivo JavaScript.
+        </li>
+
+        <li>
+            Crear una carpeta para imágenes.
+        </li>
+
+        <li>
+            Añadir al menos una imagen.
+        </li>
+
+        <li>
+            Crear un título.
+        </li>
+
+        <li>
+            Crear varios párrafos.
+        </li>
+
+        <li>
+            Crear una tarjeta.
+        </li>
+
+        <li>
+            Crear un botón.
+        </li>
+
+        <li>
+            Hacer que el botón ejecute JavaScript.
+        </li>
+
+        <li>
+            Mostrar un mensaje al usuario.
+        </li>
+
+    </ul>
+
+
+    <div class="nota">
+
+        <strong>
+            Objetivo:
+        </strong>
+
+        El estudiante debe demostrar que comprende
+        la relación entre HTML, CSS y JavaScript,
+        y que puede incorporar correctamente
+        imágenes dentro de un proyecto frontend.
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONCLUSIÓN
+====================================================== -->
+
+<section>
+
+    <h2>
+        Conclusión
+    </h2>
+
+
+    <p>
+
+        HTML, CSS y JavaScript constituyen una base
+        fundamental para comenzar a desarrollar
+        interfaces web.
+
+    </p>
+
+
+    <p>
+
+        HTML permite construir la estructura,
+        CSS permite diseñar la interfaz y
+        JavaScript permite agregar interacción.
+
+    </p>
+
+
+    <p>
+
+        El aprendizaje debe realizarse principalmente
+        mediante la práctica. No es necesario memorizar
+        todo el código desde el principio.
+
+    </p>
+
+
+    <p>
+
+        Lo más importante es comprender qué función
+        cumple cada elemento y aprender a buscar,
+        probar y corregir errores.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Tutorial de Fundamentos Frontend
+    </p>
+
+    <p>
+        HTML5 · CSS3 · JavaScript · Visual Studio Code
+    </p>
+
+</footer>
+
+
+<!--
+    =====================================================
+    JAVASCRIPT
+    =====================================================
+-->
+
+<script>
+
+    /*
+        Esta función se ejecuta cuando el usuario
+        presiona el botón del ejemplo.
+    */
+
+    function cambiarTexto() {
+
+
+        /*
+            Buscamos el elemento que tiene
+            id="mensaje".
+        */
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+
+        /*
+            Cambiamos su contenido.
+        */
+
+        mensaje.textContent =
+            "¡El texto fue cambiado con JavaScript!";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
